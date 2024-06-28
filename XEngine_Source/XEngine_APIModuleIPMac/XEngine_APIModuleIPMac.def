@@ -1,0 +1,8 @@
+LIBRARY
+
+EXPORTS
+	APIIPMac_GetLastError
+
+	APIModule_IPAddr_Init
+	APIModule_IPAddr_UnInit
+	APIModule_IPAddr_Query
