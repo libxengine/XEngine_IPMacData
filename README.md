@@ -28,13 +28,26 @@ macos执行:./XEngine_LINEnv.sh -i 3
 #### Windows编译
 直接使用VS即可
 
-##### Linux或者MacOS编译
+#### Linux或者MacOS编译
 在XEngine_Source目录下执行命令  
 make 编译  
 make FLAGS=InstallAll 安装库程序  
 make FLAGS=CleanAll 清理编译  
 
-#### 使用说明
+## 数据结构
+#### IP数据结构
+请参考数据来源
+#### MAC数据结构
+XENGINE_PROTOCOLHDR头+XENGINE_MACADDRINFO[Array]  
+标准协议头里面设定了数据源的类型和个数以及负载大小.后面跟上多个XENGINE_MACADDRINFO数据结构.每个结构保存了MAC地址信息.如下:  
+XCHAR为一个字节.MAX_PATH为260字节  
+ - XCHAR tszVendorName[MAX_PATH];     //厂商
+ - XCHAR tszMACPrefix[64];            //MAC地址
+ - XCHAR tszUPTime[16];               //更新时间
+ - XCHAR tszBlockType[8];             //类型
+ - bool bPrivate;                     //是否是私有的
+
+## 使用说明
 
 1.  切换到MASTER分支
 2.  下载代码
@@ -62,3 +75,10 @@ make FLAGS=CleanAll 清理编译
 ## 提交问题
 
 如果你有问题或者发现程序有BUG和意见,可以在issues中提交  
+
+## 数据来源
+#### IP数据库
+@ip2region
+
+#### MAC数据库
+@MACLookup 
