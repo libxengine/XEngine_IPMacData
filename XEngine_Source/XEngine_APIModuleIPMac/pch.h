@@ -18,10 +18,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <string>
+#include <unordered_map>
 #include <XEngine_Include/XEngine_CommHdr.h>
 #include <XEngine_Include/XEngine_Types.h>
+#include <XEngine_Include/XEngine_ProtocolHdr.h>
 #include <XEngine_Include/XEngine_BaseLib/BaseLib_Define.h>
 #include <XEngine_Include/XEngine_BaseLib/BaseLib_Error.h>
+#include "../XIPMac_CommHdr.h"
 #include "APIIPMac_Define.h"
 #include "APIIPMac_Error.h"
 using namespace std;

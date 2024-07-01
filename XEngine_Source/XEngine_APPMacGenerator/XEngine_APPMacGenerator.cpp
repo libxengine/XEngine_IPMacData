@@ -22,15 +22,6 @@
 #endif
 #endif
 
-typedef struct  
-{
-	XCHAR tszMACPrefix[64];
-	XCHAR tszVendorName[MAX_PATH];
-	XCHAR tszUPTime[16];
-	XCHAR tszBlockType[8];
-	bool bPrivate;
-}XENGINE_MACADDRINFO;
-
 bool XEngine_APPGenerator_DBParse(XCHAR* ptszMSGBuffer, int* pInt_MSGLen)
 {
 	LPCXSTR lpszFile = _X("D:\\IPMacData\\XEngine_DBFile\\mac-vendors-export.json");

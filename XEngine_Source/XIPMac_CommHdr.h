@@ -22,4 +22,15 @@ typedef enum
 //                          子协议定义:unOperatorCode
 //////////////////////////////////////////////////////////////////////////
 //MAC
-#define XENGINE_COMMUNICATION_PROTOCOL_OPERATOR_CODE_MAC 0x1010001     
+#define XENGINE_COMMUNICATION_PROTOCOL_OPERATOR_CODE_MAC 0x10101     
+//////////////////////////////////////////////////////////////////////////
+//                          数据结构定义
+//////////////////////////////////////////////////////////////////////////
+typedef struct
+{
+	XCHAR tszVendorName[MAX_PATH];
+	XCHAR tszMACPrefix[64];
+	XCHAR tszUPTime[16];
+	XCHAR tszBlockType[8];
+	bool bPrivate;
+}XENGINE_MACADDRINFO;

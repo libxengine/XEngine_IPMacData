@@ -19,6 +19,12 @@
     <Filter Include="源文件\APIModule_IPAddr">
       <UniqueIdentifier>{2f3370fc-7ffe-4064-a3a9-da311dd42fd4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\APIModule_MACInfo">
+      <UniqueIdentifier>{1a6dcd09-c8e9-4738-a7b2-9d7c798c9dff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\APIModule_MACInfo">
+      <UniqueIdentifier>{5d6df896-482f-450e-b17b-8c103e721721}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -39,6 +45,9 @@
     <ClInclude Include="APIIPMac_Error.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="APIModule_MACInfo\APIModule_MACInfo.h">
+      <Filter>头文件\APIModule_MACInfo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -52,6 +61,9 @@
     </ClCompile>
     <ClCompile Include="APIModule_IPAddr\xdb_searcher.cpp">
       <Filter>源文件\APIModule_IPAddr</Filter>
+    </ClCompile>
+    <ClCompile Include="APIModule_MACInfo\APIModule_MACInfo.cpp">
+      <Filter>源文件\APIModule_MACInfo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

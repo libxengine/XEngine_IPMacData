@@ -3,6 +3,8 @@
 #include <string.h>
 #include <XEngine_Include/XEngine_CommHdr.h>
 #include <XEngine_Include/XEngine_Types.h>
+#include <XEngine_Include/XEngine_ProtocolHdr.h>
+#include "../XIPMac_CommHdr.h"
 #include "../XEngine_APIModuleIPMac/APIIPMac_Define.h"
 #include "../XEngine_APIModuleIPMac/APIIPMac_Error.h"
 

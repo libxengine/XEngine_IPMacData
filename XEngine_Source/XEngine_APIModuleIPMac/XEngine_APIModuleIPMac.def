@@ -6,3 +6,7 @@ EXPORTS
 	APIModule_IPAddr_Init
 	APIModule_IPAddr_UnInit
 	APIModule_IPAddr_Query
+
+	APIModule_MACInfo_Init
+	APIModule_MACInfo_UnInit
+	APIModule_MACInfo_Query
