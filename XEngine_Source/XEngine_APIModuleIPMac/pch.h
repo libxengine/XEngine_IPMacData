@@ -45,4 +45,6 @@ extern XLONG IPMac_dwErrorCode;
 
 #include "APIModule_IPAddr/xdb_searcher.h"
 
+#ifdef _MSC_BUILD
 #pragma comment(lib,"XEngine_BaseLib/XEngine_BaseLib")
+#endif
