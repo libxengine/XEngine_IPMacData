@@ -7,7 +7,6 @@
 #include <XEngine_Include/XEngine_ProtocolHdr.h>
 #include <json/json.h>
 #include "../XIPMac_CommHdr.h"
-#include "../XEngine_APIModuleIPMac/APIIPMac_Define.h"
 
 #ifdef _DEBUG
 #ifdef _WIN64
@@ -54,10 +53,10 @@ bool XEngine_APPGenerator_DBPacket(std::list<XENGINE_MACADDRINFO> *pStl_ListMACA
 	XENGINE_PROTOCOLHDR st_ProtocolHdr = {};
 
 	st_ProtocolHdr.wHeader = XENGIEN_COMMUNICATION_PACKET_PROTOCOL_HEADER;
-	st_ProtocolHdr.unOperatorType = ENUM_XENGINE_COMMUNICATION_PROTOCOL_TYPE_IPMAC;
-	st_ProtocolHdr.unOperatorCode = XENGINE_COMMUNICATION_PROTOCOL_OPERATOR_CODE_MAC;
+	st_ProtocolHdr.unOperatorType = XENGINE_COMMUNICATION_PROTOCOL_TYPE_IPMAC;
+	st_ProtocolHdr.unOperatorCode = XENGINE_COMMUNICATION_PROTOCOL_CODE_MAC;
 	st_ProtocolHdr.unPacketSize = sizeof(XENGINE_MACADDRINFO) * pStl_ListMACAddr->size();
-	st_ProtocolHdr.wPacketSerial = pStl_ListMACAddr->size();
+	st_ProtocolHdr.wPacketSerial = (XSHOT)pStl_ListMACAddr->size();
 	st_ProtocolHdr.wTail = XENGIEN_COMMUNICATION_PACKET_PROTOCOL_TAIL;
 	fwrite(&st_ProtocolHdr, 1, sizeof(XENGINE_PROTOCOLHDR), pSt_File);
 
