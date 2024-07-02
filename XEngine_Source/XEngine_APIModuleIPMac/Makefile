@@ -50,7 +50,7 @@ endif
 
 
 all:$(OBJECTS)
-	$(CC) $(DEBUG) $(OBJECTS) -o libXEngine_ModuleConfigure.$(FILEEXT) $(LIBFLAG) $(LIB) $(LIBEX) $(LOADSO) $(LOADBIN)
+	$(CC) $(DEBUG) $(OBJECTS) -o libXEngine_APIModuleIPMac.$(FILEEXT) $(LIBFLAG) $(LIB) $(LIBEX) $(LOADSO) $(LOADBIN)
 
 APIModule_IPAddr.o:./APIModule_IPAddr/APIModule_IPAddr.cpp             
 	$(CC) $(DEBUG) $(FLAGS) $(UNICODE) $(PLATVER) $(LOADHDR) ./APIModule_IPAddr/APIModule_IPAddr.cpp 
