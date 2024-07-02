@@ -7,6 +7,7 @@
 #include <XEngine_Include/XEngine_ProtocolHdr.h>
 #include <json/json.h>
 #include "../XIPMac_CommHdr.h"
+#include "../XEngine_APIModuleIPMac/APIIPMac_Define.h"
 
 #ifdef _DEBUG
 #ifdef _WIN64

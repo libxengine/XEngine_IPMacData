@@ -11,6 +11,26 @@
 //    History:
 *********************************************************************/
 //////////////////////////////////////////////////////////////////////////
+//                          数据结构定义
+//////////////////////////////////////////////////////////////////////////
+typedef struct
+{
+	XCHAR tszVendorName[MAX_PATH];     //厂商
+	XCHAR tszMACPrefix[64];            //MAC地址
+	XCHAR tszUPTime[16];               //更新时间
+	XCHAR tszBlockType[8];             //类型
+	bool bPrivate;                     //是否是私有的
+}XENGINE_MACADDRINFO;
+typedef struct
+{
+	XCHAR tszIPAddr[128];       //IP地址
+	XCHAR tszIPCountry[128];    //国家/地区
+	XCHAR tszIPProvince[128];   //省/自治区
+	XCHAR tszIPCity[128];       //市
+	XCHAR tszIPCounty[128];     //县
+	XCHAR tszIPISP[128];        //运营商
+}XENGINE_IPADDRINFO;
+//////////////////////////////////////////////////////////////////////////
 //                       导出函数定义
 //////////////////////////////////////////////////////////////////////////
 extern "C" XLONG APIIPMac_GetLastError(int* pInt_ErrorCode = NULL);
