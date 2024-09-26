@@ -28,7 +28,7 @@ typedef struct
 	XCHAR tszMACPrefix[64];            //MAC地址
 	XCHAR tszUPTime[16];               //更新时间
 	XCHAR tszBlockType[8];             //类型
-	bool bPrivate;                     //是否是私有的
+	XSHOT bPrivate;                    //是否是私有的
 }XENGINE_MACADDRINFO;
 typedef struct
 {

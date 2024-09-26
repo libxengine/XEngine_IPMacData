@@ -24,7 +24,7 @@
 
 bool XEngine_APPGenerator_DBParse(XCHAR* ptszMSGBuffer, int* pInt_MSGLen)
 {
-	LPCXSTR lpszFile = _X("D:\\IPMacData\\XEngine_DBFile\\mac-vendors-export.json");
+	LPCXSTR lpszFile = _X("D:\\XEngine_IPMacData\\XEngine_DBFile\\mac-vendors-export.json");
 
 	FILE* pSt_File = _xtfopen(lpszFile, _X("rb"));
 	if (NULL == pSt_File)
@@ -43,7 +43,7 @@ bool XEngine_APPGenerator_DBParse(XCHAR* ptszMSGBuffer, int* pInt_MSGLen)
 }
 bool XEngine_APPGenerator_DBPacket(std::list<XENGINE_MACADDRINFO> *pStl_ListMACAddr)
 {
-	LPCXSTR lpszFile = _X("D:\\IPMacData\\XEngine_DBFile\\macaddr.xdb");
+	LPCXSTR lpszFile = _X("D:\\XEngine_IPMacData\\XEngine_DBFile\\macaddr.xdb");
 
 	FILE* pSt_File = _xtfopen(lpszFile, _X("wb"));
 	if (NULL == pSt_File)
