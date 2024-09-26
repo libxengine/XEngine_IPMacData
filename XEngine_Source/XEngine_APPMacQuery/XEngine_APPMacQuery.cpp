@@ -25,7 +25,7 @@
 
 int main()
 {
-	LPCXSTR lpszDBFile = _X("D:\\IPMacData\\XEngine_DBFile\\macaddr.xdb");
+	LPCXSTR lpszDBFile = _X("D:\\XEngine_IPMacData\\XEngine_DBFile\\macaddr.xdb");
 	if (!APIModule_MACInfo_Init(lpszDBFile))
 	{
 		printf("APIModule_MACInfo_Init:%lX\n", APIIPMac_GetLastError());
