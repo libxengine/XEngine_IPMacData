@@ -107,7 +107,7 @@ bool CAPIModule_IPAddr::APIModule_IPAddr_Query(XENGINE_IPADDRINFO* pSt_IPAddrInf
 #ifdef _MSC_BUILD
 	XCHAR tszGBKBuffer[MAX_PATH] = {};
 	int nUTFLen = _tcsxlen(tszMsgBuffer);
-	BaseLib_OperatorCharset_UTFToAnsi(tszMsgBuffer, tszGBKBuffer, &nUTFLen);
+	BaseLib_Charset_UTFToAnsi(tszMsgBuffer, tszGBKBuffer, &nUTFLen);
 	nRet = _stxscanf(tszGBKBuffer, _X("%[^|]|%[^|]|%[^|]|%[^|]|%[^|]"), pSt_IPAddrInfo->tszIPCountry, pSt_IPAddrInfo->tszIPCounty, pSt_IPAddrInfo->tszIPProvince, pSt_IPAddrInfo->tszIPCity, pSt_IPAddrInfo->tszIPISP);
 #else
 	nRet = _stxscanf(tszMsgBuffer, _X("%[^|]|%[^|]|%[^|]|%[^|]|%[^|]"), pSt_IPAddrInfo->tszIPCountry, pSt_IPAddrInfo->tszIPCounty, pSt_IPAddrInfo->tszIPProvince, pSt_IPAddrInfo->tszIPCity, pSt_IPAddrInfo->tszIPISP);
