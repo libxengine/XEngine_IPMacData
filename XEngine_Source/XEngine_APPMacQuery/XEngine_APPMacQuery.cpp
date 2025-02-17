@@ -25,6 +25,13 @@
 
 int main()
 {
+#ifndef _DEBUG
+	if (setlocale(LC_ALL, ".UTF8") == NULL)
+	{
+		AfxMessageBox(_T("Error setting locale.\n"));
+		return false;
+	}
+#endif
 	LPCXSTR lpszDBFile = _X("D:\\XEngine_IPMacData\\XEngine_DBFile\\macaddr.xdb");
 	if (!APIModule_MACInfo_Init(lpszDBFile))
 	{

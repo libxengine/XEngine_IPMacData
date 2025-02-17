@@ -77,6 +77,13 @@ bool XEngine_APPGenerator_DBPacket(std::list<XENGINE_MACADDRINFO> *pStl_ListMACA
 }
 int main()
 {
+#ifndef _DEBUG
+	if (setlocale(LC_ALL, ".UTF8") == NULL)
+	{
+		AfxMessageBox(_T("Error setting locale.\n"));
+		return false;
+	}
+#endif
 	int nMSGLen = 0;
 	XCHAR* ptszMSGBuffer = (XCHAR*)malloc(XENGINE_MEMORY_SIZE_MAX);
 	if (NULL == ptszMSGBuffer)
