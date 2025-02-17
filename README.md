@@ -15,7 +15,7 @@ IP address and MAC address ownership query
 ## 安装教程
 
 #### XEngine环境
-想要编译我们的例子,需要XEngine环境,版本需要V8.x或者以上版本,安装XEngine可以参考其Readme文档  
+想要编译我们的例子,需要XEngine环境,版本需要V9.x或者以上版本,安装XEngine可以参考其Readme文档  
 GITEE:https://gitee.com/libxengine/libxengine  
 GITHUB:https://github.com/libxengine/libxengine
 
