@@ -14,15 +14,15 @@ IP address and MAC address ownership query
 ## Installation Guide
 
 #### XEngine Environment
-To compile our examples, you need the XEngine environment, version V8.x or above. You can refer to its README document for installing XEngine.  
-GITEE: https://gitee.com/xyry/libxengine  
-GITHUB: https://github.com/libxengine/xengine
+To compile our examples, you need the XEngine environment, version V9.x or above. You can refer to its README document for installing XEngine.  
+GITEE: https://gitee.com/libxengine/libxengine  
+GITHUB: https://github.com/libxengine/libxengine
 
 ###### Quick Deployment
 Clone the repository:  
-`git clone https://gitee.com/xyry/libxengine.git`  
+`git clone https://gitee.com/libxengine/libxengine.git`  
 or  
-`git clone https://github.com/libxengine/xengine.git`  
+`git clone https://github.com/libxengine/libxengine.git`  
 
 For Windows, execute the `XEngine_WINEnv.bat` script.  
 For Linux, execute: `sudo ./XEngine_LINEnv.sh -i 3`  

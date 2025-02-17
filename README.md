@@ -16,11 +16,11 @@ IP address and MAC address ownership query
 
 #### XEngine环境
 想要编译我们的例子,需要XEngine环境,版本需要V8.x或者以上版本,安装XEngine可以参考其Readme文档  
-GITEE:https://gitee.com/xyry/libxengine  
-GITHUB:https://github.com/libxengine/xengine
+GITEE:https://gitee.com/libxengine/libxengine  
+GITHUB:https://github.com/libxengine/libxengine
 
 ###### 快速部署
-git clone https://gitee.com/xyry/libxengine.git 或者 git clone https://github.com/libxengine/xengine.git  
+git clone https://gitee.com/libxengine/libxengine.git 或者 git clone https://github.com/libxengine/libxengine.git  
 window执行XEngine_WINEnv.bat 脚本.  
 Linux执行:sudo ./XEngine_LINEnv.sh -i 3  
 macos执行:./XEngine_LINEnv.sh -i 3  
