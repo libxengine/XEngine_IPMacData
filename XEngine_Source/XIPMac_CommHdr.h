@@ -1,41 +1,41 @@
-#pragma once
+ï»¿#pragma once
 /********************************************************************
 //    Created:     2024/07/01  15:39:46
 //    File Name:   D:\IPMacData\XEngine_Source\XIPMac_CommHdr.h
 //    File Path:   D:\IPMacData\XEngine_Source
 //    File Base:   XIPMac_CommHdr
 //    File Ext:    h
-//    Project:     XEngine(ÍøÂçÍ¨ĞÅÒıÇæ)
+//    Project:     XEngine(ç½‘ç»œé€šä¿¡å¼•æ“)
 //    Author:      qyt
-//    Purpose:     ¹«ÓÃÍ·ÎÄ¼ş
+//    Purpose:     å…¬ç”¨å¤´æ–‡ä»¶
 //    History:
 *********************************************************************/
 //////////////////////////////////////////////////////////////////////////
-//                          Ö÷Ğ­Òé¶¨Òå;unOperatorType
+//                          ä¸»åè®®å®šä¹‰;unOperatorType
 //////////////////////////////////////////////////////////////////////////
 #define XENGINE_COMMUNICATION_PROTOCOL_TYPE_IPMAC (ENUM_XENGINE_COMMUNICATION_PROTOCOL_TYPE_USER + 101)
 //////////////////////////////////////////////////////////////////////////
-//                          ×ÓĞ­Òé¶¨Òå:unOperatorCode
+//                          å­åè®®å®šä¹‰:unOperatorCode
 //////////////////////////////////////////////////////////////////////////
 //MAC
 #define XENGINE_COMMUNICATION_PROTOCOL_CODE_MAC 0x10101     
 //////////////////////////////////////////////////////////////////////////
-//                          Êı¾İ½á¹¹¶¨Òå
+//                          æ•°æ®ç»“æ„å®šä¹‰
 //////////////////////////////////////////////////////////////////////////
 typedef struct
 {
-	XCHAR tszVendorName[MAX_PATH];     //³§ÉÌ
-	XCHAR tszMACPrefix[64];            //MACµØÖ·
-	XCHAR tszUPTime[16];               //¸üĞÂÊ±¼ä
-	XCHAR tszBlockType[8];             //ÀàĞÍ
-	XSHOT bPrivate;                    //ÊÇ·ñÊÇË½ÓĞµÄ
+	XCHAR tszVendorName[MAX_PATH];     //å‚å•†
+	XCHAR tszMACPrefix[64];            //MACåœ°å€
+	XCHAR tszUPTime[16];               //æ›´æ–°æ—¶é—´
+	XCHAR tszBlockType[8];             //ç±»å‹
+	XSHOT bPrivate;                    //æ˜¯å¦æ˜¯ç§æœ‰çš„
 }XENGINE_MACADDRINFO;
 typedef struct
 {
-	XCHAR tszIPAddr[128];       //IPµØÖ·
-	XCHAR tszIPCountry[128];    //¹ú¼Ò/µØÇø
-	XCHAR tszIPProvince[128];   //Ê¡/×ÔÖÎÇø
-	XCHAR tszIPCity[128];       //ÊĞ
-	XCHAR tszIPCounty[128];     //ÏØ
-	XCHAR tszIPISP[128];        //ÔËÓªÉÌ
+	XCHAR tszIPAddr[128];       //IPåœ°å€
+	XCHAR tszIPCountry[128];    //å›½å®¶/åœ°åŒº
+	XCHAR tszIPProvince[128];   //çœ/è‡ªæ²»åŒº
+	XCHAR tszIPCity[128];       //å¸‚
+	XCHAR tszIPCounty[128];     //å¿
+	XCHAR tszIPISP[128];        //è¿è¥å•†
 }XENGINE_IPADDRINFO;

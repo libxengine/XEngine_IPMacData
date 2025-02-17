@@ -29,8 +29,8 @@ int main()
 #ifndef _DEBUG
 	if (setlocale(LC_ALL, ".UTF8") == NULL)
 	{
-		AfxMessageBox(_T("Error setting locale.\n"));
-		return false;
+		printf("Error setting locale.\n");
+		return -1;
 	}
 #endif
     LPCXSTR lpszDBFile = _X("D:\\IPMacData\\XEngine_DBFile\\ip2region.xdb");

@@ -1,6 +1,7 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <locale.h>
 #include <XEngine_Include/XEngine_CommHdr.h>
 #include <XEngine_Include/XEngine_Types.h>
 #include <XEngine_Include/XEngine_ProtocolHdr.h>
@@ -28,8 +29,8 @@ int main()
 #ifndef _DEBUG
 	if (setlocale(LC_ALL, ".UTF8") == NULL)
 	{
-		AfxMessageBox(_T("Error setting locale.\n"));
-		return false;
+		printf("Error setting locale.\n");
+		return -1;
 	}
 #endif
 	LPCXSTR lpszDBFile = _X("D:\\XEngine_IPMacData\\XEngine_DBFile\\macaddr.xdb");
