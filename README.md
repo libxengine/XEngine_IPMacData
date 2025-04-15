@@ -56,10 +56,8 @@ XCHAR为一个字节.MAX_PATH为260字节
 5.  运行
 
 ## 目录结构
-- XEngine_Docment    文档目录结构  
-- XEngine_Release    安装目录结构  
+- XEngine_DBFile     数据库存放目录  
 - XEngine_Source     源代目录结构  
-- XEngine_APPClient  客户端演示代码  
 
 ## 参与贡献
 希望大家多多提交代码参与贡献  
@@ -78,7 +76,7 @@ XCHAR为一个字节.MAX_PATH为260字节
 
 ## 数据来源
 #### IP数据库
-@ip2region
+@geolite2 uptime:2025.04.15
 
 #### MAC数据库
 @MACLookup 

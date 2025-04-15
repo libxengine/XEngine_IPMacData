@@ -60,10 +60,8 @@ The standard protocol header sets the type, count, and payload size of the data 
 5. Run
 
 ## Directory Structure
-- `XEngine_Docment`    Document directory structure  
-- `XEngine_Release`    Installation directory structure  
-- `XEngine_Source`     Source code directory structure  
-- `XEngine_APPClient`  Client demo code  
+- XEngine_DBFile    db file 
+- XEngine_Source    Source code directory structure 
 
 ## Contributing
 We hope everyone can contribute more code.
@@ -82,7 +80,7 @@ If you have any questions or find bugs and have suggestions, you can submit them
 
 ## Data Sources
 #### IP Database
-@ip2region
+@geolite2 uptime:2025.04.15
 
 #### MAC Database
 @MACLookup
