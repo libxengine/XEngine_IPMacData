@@ -1,4 +1,5 @@
 CC = g++ -Wall -std=c++20 -fPIC
+CC_C = gcc -Wall -std=c17 -fPIC
 PLATFORM = linux
 PLATVER = 
 PLATDIR = 
@@ -10,7 +11,9 @@ LOADHDR = -I ./
 LOADSO = 
 LIB = 
 LIBEX = 
-OBJECTS = APIModule_IPAddr.o xdb_searcher.o APIModule_MACInfo.o pch.o
+OBJECTS_C = data-pool.o maxminddb.o
+OBJECTS_CPP = APIModule_IPAddr.o APIModule_MACInfo.o pch.o
+OBJECTS = $(OBJECTS_C) $(OBJECTS_CPP)
 
 ifeq ($(RELEASE),1)
 FLAGS = -c 
@@ -57,6 +60,10 @@ endif
 all:$(OBJECTS)
 	$(CC) $(DEBUG) $(OBJECTS) -o libXEngine_APIModuleIPMac.$(FILEEXT) $(LIBFLAG) $(LIB) $(LIBEX) $(LOADSO) $(LOADBIN)
 
+data-pool.o:./APIModule_IPAddr/data-pool.c             
+	$(CC_C) $(DEBUG) $(FLAGS) $(UNICODE) $(PLATVER) $(LOADHDR) ./APIModule_IPAddr/data-pool.c
+maxminddb.o:./APIModule_IPAddr/maxminddb.c       
+	$(CC_C) $(DEBUG) $(FLAGS) $(UNICODE) $(PLATVER) $(LOADHDR) ./APIModule_IPAddr/maxminddb.c
 APIModule_IPAddr.o:./APIModule_IPAddr/APIModule_IPAddr.cpp             
 	$(CC) $(DEBUG) $(FLAGS) $(UNICODE) $(PLATVER) $(LOADHDR) ./APIModule_IPAddr/APIModule_IPAddr.cpp 
 xdb_searcher.o:./APIModule_IPAddr/xdb_searcher.cpp             
