@@ -63,7 +63,7 @@ extern "C" void APIModule_IPAddr_UnInit();
   意思：是否成功
 备注：
 *********************************************************************/
-extern "C" bool APIModule_IPAddr_Query(XENGINE_IPADDRINFO* pSt_IPAddrInfo);
+extern "C" bool APIModule_IPAddr_Query(XENGINE_IPADDRINFO* pSt_IPAddrInfo, LPCXSTR lpszLanguageStr = _X("en"));
 /*********************************************************************************
 *                                MAC查询函数定义                                 *
 *********************************************************************************/

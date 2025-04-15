@@ -20,7 +20,7 @@ public:
 public:
 	bool APIModule_IPAddr_Init(LPCXSTR lpszIPFile, LPCXSTR lpszISPFile = NULL);
 	void APIModule_IPAddr_UnInit();
-	bool APIModule_IPAddr_Query(XENGINE_IPADDRINFO* pSt_IPAddrInfo,LPCXSTR lpszLanguageStr = _X("en"));
+	bool APIModule_IPAddr_Query(XENGINE_IPADDRINFO* pSt_IPAddrInfo, LPCXSTR lpszLanguageStr = _X("en"));
 protected:
 	bool APIModule_IPAddr_ISPQuery(XENGINE_IPADDRINFO* pSt_IPAddrInfo);
 private:

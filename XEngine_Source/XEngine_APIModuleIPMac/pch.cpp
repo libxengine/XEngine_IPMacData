@@ -39,9 +39,9 @@ extern "C" void APIModule_IPAddr_UnInit()
 {
 	return m_APIIPAddr.APIModule_IPAddr_UnInit();
 }
-extern "C" bool APIModule_IPAddr_Query(XENGINE_IPADDRINFO* pSt_IPAddrInfo)
+extern "C" bool APIModule_IPAddr_Query(XENGINE_IPADDRINFO* pSt_IPAddrInfo, LPCXSTR lpszLanguageStr)
 {
-	return m_APIIPAddr.APIModule_IPAddr_Query(pSt_IPAddrInfo);
+	return m_APIIPAddr.APIModule_IPAddr_Query(pSt_IPAddrInfo, lpszLanguageStr);
 }
 /*********************************************************************************
 *                                MAC查询函数定义                                 *
