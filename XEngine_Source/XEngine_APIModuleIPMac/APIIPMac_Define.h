@@ -20,17 +20,22 @@ extern "C" XLONG APIIPMac_GetLastError(int* pInt_ErrorCode = NULL);
 /********************************************************************
 函数名称：APIModule_IPAddr_Init
 函数功能：初始化模块
- 参数.一：lpszDBFile
+ 参数.一：lpszIPFile
   In/Out：In
   类型：常量字符指针
   可空：N
-  意思：输入数据库路径
+  意思：输入IP数据库路径
+ 参数.二：lpszISPFile
+  In/Out：In
+  类型：常量字符指针
+  可空：N
+  意思：输入IP编码信息数据库路径
 返回值
   类型：逻辑型
   意思：是否成功
 备注：
 *********************************************************************/
-extern "C" bool APIModule_IPAddr_Init(LPCXSTR lpszDBFile);
+extern "C" bool APIModule_IPAddr_Init(LPCXSTR lpszIPFile, LPCXSTR lpszISPFile);
 /********************************************************************
 函数名称：APIModule_IPAddr_UnInit
 函数功能：反初始化
@@ -48,6 +53,11 @@ extern "C" void APIModule_IPAddr_UnInit();
   类型：数据结构指针
   可空：N
   意思：输入要查询的地址,输出查询到的信息
+ 参数.二：lpszLanguageStr
+  In/Out：In/Out
+  类型：常量字符指针
+  可空：N
+  意思：输入要获取的语言信息,en为英语,zh-CN为中文
 返回值
   类型：逻辑型
   意思：是否成功

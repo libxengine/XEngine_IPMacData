@@ -16,7 +16,6 @@
 #define ERROR_XENGINE_IPMAC_APIMODULE_IPADDR_PARAMENT 0xFB0001            //初始化失败.参数错误
 #define ERROR_XENGINE_IPMAC_APIMODULE_IPADDR_OPENFILE 0xFB0002            //打开文件失败
 #define ERROR_XENGINE_IPMAC_APIMODULE_IPADDR_NOTFOUND 0xFB0003            //没有找到
-#define ERROR_XENGINE_IPMAC_APIMODULE_IPADDR_VER 0xFB0004                 //数据验证失败,数据错误
 //////////////////////////////////////////////////////////////////////////
 //                       MAC错误
 //////////////////////////////////////////////////////////////////////////

@@ -36,9 +36,6 @@
     <ClInclude Include="APIModule_IPAddr\APIModule_IPAddr.h">
       <Filter>头文件\APIModule_IPAddr</Filter>
     </ClInclude>
-    <ClInclude Include="APIModule_IPAddr\xdb_searcher.h">
-      <Filter>头文件\APIModule_IPAddr</Filter>
-    </ClInclude>
     <ClInclude Include="APIIPMac_Define.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -47,6 +44,18 @@
     </ClInclude>
     <ClInclude Include="APIModule_MACInfo\APIModule_MACInfo.h">
       <Filter>头文件\APIModule_MACInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="APIModule_IPAddr\data-pool.h">
+      <Filter>头文件\APIModule_IPAddr</Filter>
+    </ClInclude>
+    <ClInclude Include="APIModule_IPAddr\maxminddb-compat-util.h">
+      <Filter>头文件\APIModule_IPAddr</Filter>
+    </ClInclude>
+    <ClInclude Include="APIModule_IPAddr\maxminddb.h">
+      <Filter>头文件\APIModule_IPAddr</Filter>
+    </ClInclude>
+    <ClInclude Include="APIModule_IPAddr\maxminddb_config.h">
+      <Filter>头文件\APIModule_IPAddr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -59,11 +68,14 @@
     <ClCompile Include="APIModule_IPAddr\APIModule_IPAddr.cpp">
       <Filter>源文件\APIModule_IPAddr</Filter>
     </ClCompile>
-    <ClCompile Include="APIModule_IPAddr\xdb_searcher.cpp">
-      <Filter>源文件\APIModule_IPAddr</Filter>
-    </ClCompile>
     <ClCompile Include="APIModule_MACInfo\APIModule_MACInfo.cpp">
       <Filter>源文件\APIModule_MACInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="APIModule_IPAddr\data-pool.c">
+      <Filter>源文件\APIModule_IPAddr</Filter>
+    </ClCompile>
+    <ClCompile Include="APIModule_IPAddr\maxminddb.c">
+      <Filter>源文件\APIModule_IPAddr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -43,8 +43,7 @@ using namespace std;
 extern bool IPMac_IsErrorOccur;
 extern XLONG IPMac_dwErrorCode;
 
-#include "APIModule_IPAddr/xdb_searcher.h"
-
 #ifdef _MSC_BUILD
+#pragma comment(lib,"Ws2_32")
 #pragma comment(lib,"XEngine_BaseLib/XEngine_BaseLib")
 #endif

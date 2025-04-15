@@ -38,8 +38,9 @@ int main()
 		return -1;
 	}
 #endif
-    LPCXSTR lpszDBFile = _X("D:\\IPMacData\\XEngine_DBFile\\ip2region.xdb");
-    if (!APIModule_IPAddr_Init(lpszDBFile))
+    LPCXSTR lpszIPFile = _X("D:\\XEngine_IPMacData\\XEngine_DBFile\\GeoLite2-City.mmdb");
+    LPCXSTR lpszISPFile = _X("D:\\XEngine_IPMacData\\XEngine_DBFile\\GeoLite2-ASN.mmdb");
+    if (!APIModule_IPAddr_Init(lpszIPFile, lpszISPFile))
     {
         printf("APIModule_IPAddr_Init:%lX\n", APIIPMac_GetLastError());
         return -1;
@@ -53,7 +54,7 @@ int main()
 		printf("APIModule_IPAddr_Query:%lX\n", APIIPMac_GetLastError());
 		return -1;
     }
-    printf("%s=%s,%s,%s,%s,%s\n", st_IPAddrInfo.tszIPAddr, st_IPAddrInfo.tszIPCountry,st_IPAddrInfo.tszIPProvince, st_IPAddrInfo.tszIPCity, st_IPAddrInfo.tszIPCounty,st_IPAddrInfo.tszIPISP);
+    printf("%s=%s,%s,%s,%s,%s\n", st_IPAddrInfo.tszIPAddr, st_IPAddrInfo.tszIPContinent, st_IPAddrInfo.tszIPCountry, st_IPAddrInfo.tszIPProvince, st_IPAddrInfo.tszIPCity, st_IPAddrInfo.tszIPISP);
 
     APIModule_IPAddr_UnInit();
     return 0;

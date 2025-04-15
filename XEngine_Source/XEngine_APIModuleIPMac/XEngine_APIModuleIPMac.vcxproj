@@ -236,14 +236,22 @@
     <ClInclude Include="APIIPMac_Define.h" />
     <ClInclude Include="APIIPMac_Error.h" />
     <ClInclude Include="APIModule_IPAddr\APIModule_IPAddr.h" />
-    <ClInclude Include="APIModule_IPAddr\xdb_searcher.h" />
+    <ClInclude Include="APIModule_IPAddr\data-pool.h" />
+    <ClInclude Include="APIModule_IPAddr\maxminddb-compat-util.h" />
+    <ClInclude Include="APIModule_IPAddr\maxminddb.h" />
+    <ClInclude Include="APIModule_IPAddr\maxminddb_config.h" />
     <ClInclude Include="APIModule_MACInfo\APIModule_MACInfo.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="APIModule_IPAddr\APIModule_IPAddr.cpp" />
-    <ClCompile Include="APIModule_IPAddr\xdb_searcher.cpp" />
+    <ClCompile Include="APIModule_IPAddr\data-pool.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="APIModule_IPAddr\maxminddb.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="APIModule_MACInfo\APIModule_MACInfo.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="pch.cpp">

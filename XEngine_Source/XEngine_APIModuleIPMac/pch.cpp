@@ -31,9 +31,9 @@ extern "C" XLONG APIIPMac_GetLastError(int* pInt_ErrorCode)
 /************************************************************************/
 /*                         号码查询                                     */
 /************************************************************************/
-extern "C" bool APIModule_IPAddr_Init(LPCXSTR lpszDBFile)
+extern "C" bool APIModule_IPAddr_Init(LPCXSTR lpszIPFile, LPCXSTR lpszISPFile)
 {
-	return m_APIIPAddr.APIModule_IPAddr_Init(lpszDBFile);
+	return m_APIIPAddr.APIModule_IPAddr_Init(lpszIPFile, lpszISPFile);
 }
 extern "C" void APIModule_IPAddr_UnInit()
 {

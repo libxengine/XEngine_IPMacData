@@ -31,11 +31,15 @@ typedef struct
 	XSHOT bPrivate;                    //是否是私有的
 }XENGINE_MACADDRINFO;
 typedef struct
-{
+{ 
+	XCHAR tszIPContinent[128];  //大洲名称
 	XCHAR tszIPAddr[128];       //IP地址
 	XCHAR tszIPCountry[128];    //国家/地区
 	XCHAR tszIPProvince[128];   //省/自治区
 	XCHAR tszIPCity[128];       //市
-	XCHAR tszIPCounty[128];     //县
+	// XCHAR tszIPCounty[128];     //县 not support
 	XCHAR tszIPISP[128];        //运营商
+	XCHAR tszTimezone[128];     //时区
+	double dlLatitude;          //纬度
+	double dlLongitude;         //经度
 }XENGINE_IPADDRINFO;
