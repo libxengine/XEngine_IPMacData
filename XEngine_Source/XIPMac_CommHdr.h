@@ -24,7 +24,7 @@
 //////////////////////////////////////////////////////////////////////////
 typedef struct
 {
-	XCHAR tszVendorName[MAX_PATH];     //厂商
+	XCHAR tszVendorName[XPATH_MAX];     //厂商
 	XCHAR tszMACPrefix[64];            //MAC地址
 	XCHAR tszUPTime[16];               //更新时间
 	XCHAR tszBlockType[8];             //类型
