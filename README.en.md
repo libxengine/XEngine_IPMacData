@@ -42,14 +42,7 @@ Execute the following commands in the `XEngine_Source` directory:
 Please refer to the data source.
 
 #### MAC Data Structure
-`XENGINE_PROTOCOLHDR` header + `XENGINE_MACADDRINFO` array  
-The standard protocol header sets the type, count, and payload size of the data source, followed by multiple `XENGINE_MACADDRINFO` data structures. Each structure stores MAC address information as follows:  
-`XCHAR` is one byte. `MAX_PATH` is 260 bytes.  
-- `XCHAR tszVendorName[MAX_PATH];`     // Vendor
-- `XCHAR tszMACPrefix[64];`            // MAC address
-- `XCHAR tszUPTime[16];`               // Update time
-- `XCHAR tszBlockType[8];`             // Type
-- `bool bPrivate;`                     // Whether it is private
+csv,Please refer to the data source.
 
 ## Usage Instructions
 
@@ -80,7 +73,7 @@ If you have any questions or find bugs and have suggestions, you can submit them
 
 ## Data Sources
 #### IP Database
-@geolite2 uptime:2025.04.15
+@geolite2 uptime:2025.08.25
 
 #### MAC Database
-@MACLookup
+@MACLookup uptime:2025.08.25

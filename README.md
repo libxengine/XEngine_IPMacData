@@ -38,14 +38,7 @@ make FLAGS=CleanAll 清理编译
 #### IP数据结构
 请参考数据来源
 #### MAC数据结构
-XENGINE_PROTOCOLHDR头+XENGINE_MACADDRINFO[Array]  
-标准协议头里面设定了数据源的类型和个数以及负载大小.后面跟上多个XENGINE_MACADDRINFO数据结构.每个结构保存了MAC地址信息.如下:  
-XCHAR为一个字节.MAX_PATH为260字节  
- - XCHAR tszVendorName[MAX_PATH];     //厂商
- - XCHAR tszMACPrefix[64];            //MAC地址
- - XCHAR tszUPTime[16];               //更新时间
- - XCHAR tszBlockType[8];             //类型
- - bool bPrivate;                     //是否是私有的
+csv,参考数据来源  
 
 ## 使用说明
 
@@ -76,7 +69,7 @@ XCHAR为一个字节.MAX_PATH为260字节
 
 ## 数据来源
 #### IP数据库
-@geolite2 uptime:2025.04.15
+@geolite2 uptime:2025.08.25
 
 #### MAC数据库
-@MACLookup 
+@MACLookup uptime:2025.08.25 
