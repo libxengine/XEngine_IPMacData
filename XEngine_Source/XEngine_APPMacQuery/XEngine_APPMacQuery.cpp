@@ -48,7 +48,7 @@ int main()
 	}
 
 	XENGINE_MACADDRINFO st_MACInfo = {};
-	_xstprintf(st_MACInfo.tszMACPrefix, _X("00:00:0C"));
+	_xstprintf(st_MACInfo.tszMACPrefix, _X("00:00:0C:12"));
 
 	if (!APIModule_MACInfo_Query(&st_MACInfo))
 	{

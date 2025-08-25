@@ -22,6 +22,7 @@ public:
 	bool APIModule_MACInfo_Query(XENGINE_MACADDRINFO* pSt_IPAddrInfo);
 protected:
 	void APIModule_MACInfo_CSVParse(LPCXSTR lpszMSGBuffer, std::vector<xstring>* pStl_ListField);
+	void APIModule_MACInfo_AddrFix(XCHAR* ptszMSGBuffer);
 private:
 	unordered_map<string, XENGINE_MACADDRINFO> stl_MapMACInfo;
 };

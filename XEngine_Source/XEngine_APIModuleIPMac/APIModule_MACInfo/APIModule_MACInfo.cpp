@@ -138,7 +138,8 @@ bool CAPIModule_MACInfo::APIModule_MACInfo_Query(XENGINE_MACADDRINFO* pSt_IPAddr
 		IPMac_dwErrorCode = ERROR_XENGINE_IPMAC_APIMODULE_IPADDR_PARAMENT;
 		return false;
 	}
-	
+	APIModule_MACInfo_AddrFix(pSt_IPAddrInfo->tszMACPrefix);
+
 	auto stl_MapIterator = stl_MapMACInfo.find(pSt_IPAddrInfo->tszMACPrefix);
 	if (stl_MapIterator == stl_MapMACInfo.end())
 	{
@@ -181,4 +182,21 @@ void CAPIModule_MACInfo::APIModule_MACInfo_CSVParse(LPCXSTR lpszMSGBuffer, std::
 	// 最后一个字段
 	tszFieldStr[nIndex] = '\0';
 	pStl_ListField->push_back(tszFieldStr);
+}
+void CAPIModule_MACInfo::APIModule_MACInfo_AddrFix(XCHAR* ptszMSGBuffer)
+{
+	int nCount = 0;
+
+	for (int i = 0; ptszMSGBuffer[i] != '\0'; i++) 
+	{
+		if (ptszMSGBuffer[i] == ':')
+		{
+			nCount++;
+			if (nCount == 3)
+			{
+				ptszMSGBuffer[i] = '\0';  // 截断字符串
+				break;
+			}
+		}
+	}
 }
