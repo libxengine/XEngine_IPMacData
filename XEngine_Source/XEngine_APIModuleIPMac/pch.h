@@ -19,6 +19,7 @@
 #include <string.h>
 #include <time.h>
 #include <string>
+#include <vector>
 #include <unordered_map>
 #include <XEngine_Include/XEngine_CommHdr.h>
 #include <XEngine_Include/XEngine_Types.h>

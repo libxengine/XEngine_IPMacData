@@ -51,28 +51,50 @@ bool CAPIModule_MACInfo::APIModule_MACInfo_Init(LPCXSTR lpszDBFile)
 		return false;
 	}
 	
-	XENGINE_PROTOCOLHDR st_ProtocolHdr = {};
-	size_t nRet = fread(&st_ProtocolHdr, 1, sizeof(XENGINE_PROTOCOLHDR), pSt_File);
-	if (nRet != sizeof(XENGINE_PROTOCOLHDR))
+	XCHAR tszMSGBuffer[XPATH_MAX] = {};
+	//第一行数据为格式数据
+	if (NULL == fgets(tszMSGBuffer, XPATH_MAX, pSt_File))
 	{
 		IPMac_IsErrorOccur = true;
 		IPMac_dwErrorCode = ERROR_XENGINE_IPMAC_APIMODULE_MACINFO_SIZE;
 		return false;
 	}
-	if ((XENGIEN_COMMUNICATION_PACKET_PROTOCOL_HEADER != st_ProtocolHdr.wHeader) || (XENGIEN_COMMUNICATION_PACKET_PROTOCOL_TAIL != st_ProtocolHdr.wTail) || (XENGINE_COMMUNICATION_PROTOCOL_TYPE_IPMAC != st_ProtocolHdr.unOperatorType) || (XENGINE_COMMUNICATION_PROTOCOL_CODE_MAC != st_ProtocolHdr.unOperatorCode))
+	tszMSGBuffer[strcspn(tszMSGBuffer, "\n")] = 0;
+
+	std::vector<xstring> stl_ListField;
+	APIModule_MACInfo_CSVParse(tszMSGBuffer, &stl_ListField);
+
+	if (5 != stl_ListField.size())
 	{
 		IPMac_IsErrorOccur = true;
 		IPMac_dwErrorCode = ERROR_XENGINE_IPMAC_APIMODULE_MACINFO_PROTOCOL;
 		return false;
 	}
-	//循环
-	for (XSHOT i = 0; i < st_ProtocolHdr.wPacketSerial; i++)
+	//读取真实数据
+	while (true)
 	{
-		XENGINE_MACADDRINFO st_MACInfo = {};
-		nRet = fread(&st_MACInfo, 1, sizeof(XENGINE_MACADDRINFO), pSt_File);
-		if (nRet != sizeof(XENGINE_MACADDRINFO))
+		memset(tszMSGBuffer, 0, sizeof(tszMSGBuffer));
+		if (NULL == fgets(tszMSGBuffer, XPATH_MAX, pSt_File))
 		{
 			break;
+		}
+		tszMSGBuffer[strcspn(tszMSGBuffer, "\n")] = 0;
+
+		XENGINE_MACADDRINFO st_MACInfo = {};
+		std::vector<xstring> stl_ListField;
+		APIModule_MACInfo_CSVParse(tszMSGBuffer, &stl_ListField);
+		
+		_tcsxcpy(st_MACInfo.tszMACPrefix, stl_ListField[0].c_str());
+		_tcsxcpy(st_MACInfo.tszVendorName, stl_ListField[1].c_str());
+		_tcsxcpy(st_MACInfo.tszBlockType, stl_ListField[3].c_str());
+		_tcsxcpy(st_MACInfo.tszUPTime, stl_ListField[4].c_str());
+		if (0 == _tcsxicmp("false", stl_ListField[2].c_str()))
+		{
+			st_MACInfo.bPrivate = false;
+		}
+		else
+		{
+			st_MACInfo.bPrivate = true;
 		}
 		stl_MapMACInfo.insert(make_pair(st_MACInfo.tszMACPrefix, st_MACInfo));
 	}
@@ -126,4 +148,37 @@ bool CAPIModule_MACInfo::APIModule_MACInfo_Query(XENGINE_MACADDRINFO* pSt_IPAddr
 	}
 	*pSt_IPAddrInfo = stl_MapIterator->second;
 	return true;
+}
+//////////////////////////////////////////////////////////////////////////
+//                       公有函数
+//////////////////////////////////////////////////////////////////////////
+void CAPIModule_MACInfo::APIModule_MACInfo_CSVParse(LPCXSTR lpszMSGBuffer, std::vector<xstring>* pStl_ListField)
+{
+	XCHAR tszFieldStr[XPATH_MIN] = {};
+	int nIndex = 0;
+	bool bFlags = false;
+
+	while (*lpszMSGBuffer)
+	{
+		if (*lpszMSGBuffer == '"')
+		{
+			// 进入或退出引号状态
+			bFlags = !bFlags;
+		}
+		else if (*lpszMSGBuffer == ',' && !bFlags)
+		{
+			// 遇到分隔符并且不在引号内，字段结束
+			tszFieldStr[nIndex] = '\0';
+			pStl_ListField->push_back(tszFieldStr);
+			nIndex = 0;
+		}
+		else 
+		{
+			tszFieldStr[nIndex++] = *lpszMSGBuffer;
+		}
+		lpszMSGBuffer++;
+	}
+	// 最后一个字段
+	tszFieldStr[nIndex] = '\0';
+	pStl_ListField->push_back(tszFieldStr);
 }
