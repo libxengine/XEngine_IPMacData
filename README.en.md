@@ -73,7 +73,7 @@ If you have any questions or find bugs and have suggestions, you can submit them
 
 ## Data Sources
 #### IP Database
-@geolite2 uptime:2025.08.25
+@geolite2 uptime:2026.02.04
 
 #### MAC Database
-@MACLookup uptime:2025.08.25
+@MACLookup uptime:2026.02.04

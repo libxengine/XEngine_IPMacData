@@ -69,7 +69,7 @@ csv,参考数据来源
 
 ## 数据来源
 #### IP数据库
-@geolite2 uptime:2025.08.25
+@geolite2 uptime:2026.02.04
 
 #### MAC数据库
-@MACLookup uptime:2025.08.25 
+@MACLookup uptime:2026.02.04 
