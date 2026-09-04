@@ -11,7 +11,4 @@
 #undef MMDB_UINT128_IS_BYTE_ARRAY
 #endif
 
-#ifdef _MSC_BUILD
-#define MMDB_UINT128_IS_BYTE_ARRAY 1
-#endif
 #endif                          /* MAXMINDDB_CONFIG_H */
