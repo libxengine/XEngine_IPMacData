@@ -81,14 +81,14 @@ bool CAPIModule_MACInfo::APIModule_MACInfo_Init(LPCXSTR lpszDBFile)
 		tszMSGBuffer[strcspn(tszMSGBuffer, "\n")] = 0;
 
 		XENGINE_MACADDRINFO st_MACInfo = {};
-		std::vector<xstring> stl_ListField;
-		APIModule_MACInfo_CSVParse(tszMSGBuffer, &stl_ListField);
+		std::vector<xstring> stl_VecField;
+		APIModule_MACInfo_CSVParse(tszMSGBuffer, &stl_VecField);
 		
-		_tcsxcpy(st_MACInfo.tszMACPrefix, stl_ListField[0].c_str());
-		_tcsxcpy(st_MACInfo.tszVendorName, stl_ListField[1].c_str());
-		_tcsxcpy(st_MACInfo.tszBlockType, stl_ListField[3].c_str());
-		_tcsxcpy(st_MACInfo.tszUPTime, stl_ListField[4].c_str());
-		if (0 == _tcsxicmp("false", stl_ListField[2].c_str()))
+		_xstrcpy(st_MACInfo.tszMACPrefix, stl_VecField[0].c_str(), sizeof(st_MACInfo.tszMACPrefix));
+		_xstrcpy(st_MACInfo.tszVendorName, stl_VecField[1].c_str(), sizeof(st_MACInfo.tszVendorName));
+		_xstrcpy(st_MACInfo.tszBlockType, stl_VecField[3].c_str(), sizeof(st_MACInfo.tszBlockType));
+		_xstrcpy(st_MACInfo.tszUPTime, stl_VecField[4].c_str(), sizeof(st_MACInfo.tszUPTime));
+		if (0 == _tcsxicmp("false", stl_VecField[2].c_str()))
 		{
 			st_MACInfo.bPrivate = false;
 		}

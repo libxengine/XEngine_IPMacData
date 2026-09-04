@@ -13,7 +13,6 @@
 #include <tchar.h>
 #include <WinSock2.h>
 #endif
-#endif //PCH_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,6 +25,8 @@
 #include <XEngine_Include/XEngine_ProtocolHdr.h>
 #include <XEngine_Include/XEngine_BaseLib/BaseLib_Define.h>
 #include <XEngine_Include/XEngine_BaseLib/BaseLib_Error.h>
+#include <XEngine_Include/XEngine_BaseLib/BaseSafe_Define.h>
+#include <XEngine_Include/XEngine_BaseLib/BaseSafe_Error.h>
 #include "../XIPMac_CommHdr.h"
 #include "APIIPMac_Define.h"
 #include "APIIPMac_Error.h"
@@ -47,4 +48,7 @@ extern XLONG IPMac_dwErrorCode;
 #ifdef _MSC_BUILD
 #pragma comment(lib,"Ws2_32")
 #pragma comment(lib,"XEngine_BaseLib/XEngine_BaseLib")
+#pragma comment(lib,"XEngine_BaseLib/XEngine_BaseSafe")
 #endif
+
+#endif //PCH_H
