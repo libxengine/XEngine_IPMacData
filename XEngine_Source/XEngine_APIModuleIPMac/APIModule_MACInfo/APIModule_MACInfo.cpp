@@ -83,11 +83,19 @@ bool CAPIModule_MACInfo::APIModule_MACInfo_Init(LPCXSTR lpszDBFile)
 		XENGINE_MACADDRINFO st_MACInfo = {};
 		std::vector<xstring> stl_ListField;
 		APIModule_MACInfo_CSVParse(tszMSGBuffer, &stl_ListField);
+		if (stl_ListField.size() < 5)
+		{
+			continue;
+		}
 		
-		_tcsxcpy(st_MACInfo.tszMACPrefix, stl_ListField[0].c_str());
-		_tcsxcpy(st_MACInfo.tszVendorName, stl_ListField[1].c_str());
-		_tcsxcpy(st_MACInfo.tszBlockType, stl_ListField[3].c_str());
-		_tcsxcpy(st_MACInfo.tszUPTime, stl_ListField[4].c_str());
+		_tcsxncpy(st_MACInfo.tszMACPrefix, stl_ListField[0].c_str(), sizeof(st_MACInfo.tszMACPrefix) - 1);
+		st_MACInfo.tszMACPrefix[sizeof(st_MACInfo.tszMACPrefix) / sizeof(st_MACInfo.tszMACPrefix[0]) - 1] = '\0';
+		_tcsxncpy(st_MACInfo.tszVendorName, stl_ListField[1].c_str(), sizeof(st_MACInfo.tszVendorName) - 1);
+		st_MACInfo.tszVendorName[sizeof(st_MACInfo.tszVendorName) / sizeof(st_MACInfo.tszVendorName[0]) - 1] = '\0';
+		_tcsxncpy(st_MACInfo.tszBlockType, stl_ListField[3].c_str(), sizeof(st_MACInfo.tszBlockType) - 1);
+		st_MACInfo.tszBlockType[sizeof(st_MACInfo.tszBlockType) / sizeof(st_MACInfo.tszBlockType[0]) - 1] = '\0';
+		_tcsxncpy(st_MACInfo.tszUPTime, stl_ListField[4].c_str(), sizeof(st_MACInfo.tszUPTime) - 1);
+		st_MACInfo.tszUPTime[sizeof(st_MACInfo.tszUPTime) / sizeof(st_MACInfo.tszUPTime[0]) - 1] = '\0';
 		if (0 == _tcsxicmp("false", stl_ListField[2].c_str()))
 		{
 			st_MACInfo.bPrivate = false;
