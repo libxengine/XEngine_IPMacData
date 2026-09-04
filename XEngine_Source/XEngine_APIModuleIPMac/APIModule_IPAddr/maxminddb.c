@@ -1670,13 +1670,21 @@ static int get_entry_data_list(const MMDB_s *const mmdb,
                                MMDB_entry_data_list_s *const entry_data_list,
                                MMDB_data_pool_s *const pool,
                                int depth) {
+    /* Guard recursive descent to prevent unbounded traversal on malformed data. */
     if (depth >= MAXIMUM_DATA_STRUCTURE_DEPTH) {
         DEBUG_MSG("reached the maximum data structure depth");
         return MMDB_INVALID_DATA_ERROR;
     }
     depth++;
+
+    /*
+     * Decode the value at the current offset directly into this list node.
+     * For scalar types this fully describes the node; for container types
+     * (map/array) additional nodes are appended below.
+     */
     CHECKED_DECODE_ONE(mmdb, offset, &entry_data_list->entry_data);
 
+    /* Expand composite types into subsequent list nodes in decode order. */
     switch (entry_data_list->entry_data.type) {
         case MMDB_DATA_TYPE_POINTER: {
             uint32_t next_offset = entry_data_list->entry_data.offset_to_next;
@@ -1764,6 +1772,7 @@ static int get_entry_data_list(const MMDB_s *const mmdb,
             break;
     }
 
+    /* Reaching here means this node (and any recursively expanded children) decoded successfully. */
     return MMDB_SUCCESS;
 }
 
