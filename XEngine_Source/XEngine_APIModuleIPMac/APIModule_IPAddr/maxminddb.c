@@ -2064,6 +2064,14 @@ int MMDB_dump_entry_data_list(FILE *const stream,
     return status;
 }
 
+/* Recursively print a parsed MMDB entry-data list in a JSON-like format.
+ *
+ * Traversal contract:
+ * - `entry_data_list` points at the current node to print.
+ * - The function consumes one logical value (which may span many nodes for
+ *   maps/arrays) and returns the next unconsumed node.
+ * - On any failure, `*status` is set and NULL is returned.
+ */
 static MMDB_entry_data_list_s *
 dump_entry_data_list(FILE *stream,
                      MMDB_entry_data_list_s *entry_data_list,
@@ -2071,16 +2079,19 @@ dump_entry_data_list(FILE *stream,
                      int *status) {
     switch (entry_data_list->entry_data.type) {
         case MMDB_DATA_TYPE_MAP: {
+            /* Map data_size is the number of key/value pairs. */
             uint32_t size = entry_data_list->entry_data.data_size;
 
             print_indentation(stream, indent);
             fprintf(stream, "{\n");
             indent += 2;
 
+            /* Move from the map container node to the first key node. */
             for (entry_data_list = entry_data_list->next;
                  size && entry_data_list;
                  size--) {
 
+                /* Keys must be UTF-8 strings in the entry-data list format. */
                 if (MMDB_DATA_TYPE_UTF8_STRING !=
                     entry_data_list->entry_data.type) {
                     *status = MMDB_INVALID_DATA_ERROR;
@@ -2098,10 +2109,12 @@ dump_entry_data_list(FILE *stream,
                 fprintf(stream, "\"%s\": \n", key);
                 free(key);
 
+                /* Advance to the value node and recursively dump that value. */
                 entry_data_list = entry_data_list->next;
                 entry_data_list = dump_entry_data_list(
                     stream, entry_data_list, indent + 2, status);
 
+                /* Bubble up the first error from any nested structure. */
                 if (MMDB_SUCCESS != *status) {
                     return NULL;
                 }
