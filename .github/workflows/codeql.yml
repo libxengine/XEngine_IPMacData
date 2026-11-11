@@ -38,11 +38,6 @@ jobs:
             
           chmod 777 *
           sudo ./XEngine_LINEnv.sh -i 3
-    - name: Set up Dependency Environment
-      run: |
-          cd libxengine
-          chmod +x ./XEngine_LINEnv.sh
-          sudo ./XEngine_LINEnv.sh -i 3
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v4
